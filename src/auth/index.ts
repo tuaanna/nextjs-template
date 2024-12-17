@@ -1,6 +1,6 @@
-import { authConfigs } from "@/configs/auth";
-import NextAuth from "next-auth";
+import { authConfigs } from '@/configs/auth'
+import NextAuth from 'next-auth'
 
-const { handlers, signIn, signOut, auth } = NextAuth(authConfigs);
+const { handlers, signIn, signOut, auth } = NextAuth(authConfigs)
 
-export { handlers, signIn, signOut, auth };
+export { auth, handlers, signIn, signOut }
