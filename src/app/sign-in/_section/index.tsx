@@ -1,9 +1,8 @@
 import { auth } from '@/auth'
 import { LoginForm } from '@/components/login-form'
 import { GalleryVerticalEnd } from 'lucide-react'
-import { FC } from 'react'
 
-export const SignIn: FC = async () => {
+export const SignIn: React.FC = async () => {
   const session = await auth()
   console.log('session', session)
   return (

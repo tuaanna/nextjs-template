@@ -3,14 +3,14 @@ pre-commit:
   commands:
     eslint:
       glob: '*.{js,ts,jsx,tsx}'
-      run: pnpm dlx eslint {staged_files}
+      run: npx eslint {staged_files}
     prettier:
       glob: '*.{js,ts,jsx,tsx}'
-      run: pnpm dlx prettier --write {staged_files}
+      run: npx prettier --write {staged_files}
     tsc:
       glob: '*.{js,ts,jsx,tsx}'
-      run: pnpm dlx tsc --noEmit
+      run: npx tsc --noEmit
 commit-msg:
   commands:
     lint-commit-msg:
-      run: pnpm dlx commitlint --edit
+      run: npx commitlint --edit
