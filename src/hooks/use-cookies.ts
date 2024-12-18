@@ -9,6 +9,35 @@ export type UseCookiesReturn<T> = {
   setField: (name: keyof T, updateValue: T[keyof T]) => void
 }
 
+/**
+ * Custom hook to manage state with cookies.
+ *
+ * @template T - The type of the state.
+ * @param {string} key - The key to store the state in cookies.
+ * @param {T} initialState - The initial state value.
+ * @param {T} defaultValues - The default values to reset the state.
+ * @param {Object} [options] - Optional settings.
+ * @param {number} [options.daysUntilExpiration] - Number of days until the cookie expires.
+ * @returns {UseCookiesReturn<T>} - An object containing the state and functions to manipulate it.
+ *
+ * @example
+ * ```typescript
+ * const { state, setState, setField, resetState, canReset } = useCookies('user', { name: '', age: 0 }, { name: '', age: 0 });
+ *
+ * // Update the entire state
+ * setState({ name: 'John', age: 30 });
+ *
+ * // Update a specific field
+ * setField('name', 'Jane');
+ *
+ * // Reset the state to default values
+ * resetState();
+ *
+ * // Check if the state can be reset
+ * console.log(canReset); // true or false
+ * ```
+ */
+
 export const useCookies = <T>(
   key: string,
   initialState: T,

@@ -9,7 +9,33 @@ export type UseLocalStorageReturn<T> = {
   setField: (name: keyof T, updateValue: T[keyof T]) => void
 }
 
-export function useLocalStorage<T>(key: string, initialState: T): UseLocalStorageReturn<T> {
+/**
+ * Custom hook to manage state with local storage.
+ *
+ * @template T - The type of the state.
+ * @param {string} key - The key to store the state in local storage.
+ * @param {T} initialState - The initial state value.
+ * @returns {UseLocalStorageReturn<T>} An object containing the state and functions to manipulate it.
+ *
+ * @example
+ * ```typescript
+ * const { state, setState, setField, resetState, canReset } = useLocalStorage('user', { name: '', age: 0 });
+ *
+ * // Update the entire state
+ * setState({ name: 'John', age: 30 });
+ *
+ * // Update a specific field
+ * setField('name', 'Jane');
+ *
+ * // Reset the state to initial value
+ * resetState();
+ *
+ * // Check if the state can be reset
+ * console.log(canReset); // true or false
+ * ```
+ */
+
+export const useLocalStorage = <T>(key: string, initialState: T): UseLocalStorageReturn<T> => {
   const [state, set] = useState(initialState)
 
   const multiValue = initialState && typeof initialState === 'object'

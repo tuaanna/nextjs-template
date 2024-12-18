@@ -1,3 +1,15 @@
+/**
+ * Fetches a resource from the network with a specified timeout.
+ *
+ * @template T - The expected response type.
+ * @param {string} url - The URL to fetch.
+ * @param {RequestInit} [options={}] - The options for the fetch request.
+ * @param {number} [timeout=5000] - The timeout duration in milliseconds.
+ * @returns {Promise<T>} A promise that resolves with the fetched data or rejects with an error.
+ *
+ * @throws {Error} If the response status is not OK (2xx).
+ * @throws {Error} If the request times out.
+ */
 export const fetchWithTimeout = <T>(url: string, options: RequestInit = {}, timeout: number = 5000): Promise<T> => {
   return new Promise((resolve, reject) => {
     const controller = new AbortController()
