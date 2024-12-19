@@ -6,12 +6,13 @@ type Props = {
 
 export const SwrProvider: React.FC<Props> = ({ children }) => {
   const swrConfig = useSWRConfig()
+
   return (
     <SWRConfig
       value={{
+        ...swrConfig,
         refreshInterval: 3000,
         fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
-        ...swrConfig,
       }}
     >
       {children}

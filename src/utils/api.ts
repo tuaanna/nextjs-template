@@ -9,7 +9,13 @@
  *
  * @throws {Error} If the response status is not OK (2xx).
  * @throws {Error} If the request times out.
+ *
+ * @example
+ * fetchWithTimeout<User>('https://api.example.com/user', { method: 'GET' }, 3000)
+ *   .then((data) => console.log(data))
+ *   .catch((error) => console.error(error));
  */
+
 export const fetchWithTimeout = <T>(url: string, options: RequestInit = {}, timeout: number = 5000): Promise<T> => {
   return new Promise((resolve, reject) => {
     const controller = new AbortController()
