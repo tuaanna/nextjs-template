@@ -1,3 +1,3 @@
-import { SignIn } from "./_section";
+import { SignIn } from '@/containers'
 
-export default SignIn;
+export default SignIn

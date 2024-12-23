@@ -1,7 +1,7 @@
 'use client'
 
+import { JotaiProvider } from '@/providers/jotai-provider'
 import { SwrProvider } from '@/providers/swr-provider'
-import { JotaiProvider } from './jotai-provider'
 
 type Props = {
   children: React.ReactNode

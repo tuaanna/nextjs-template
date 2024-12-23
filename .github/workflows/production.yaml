@@ -1,11 +1,18 @@
 name: Vercel Production Deployment
+run-name: Deploy Production To Vercel
+
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
+  # allows to manually run the job at any time
+  workflow_dispatch:
+
+  # run on every push on the main branch
   push:
     branches:
       - main
+
 jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
